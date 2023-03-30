@@ -1,24 +1,26 @@
 import java.util.Scanner;
 
-class Main {
-
-	public static void main(String[] args) {
-		StringBuffer sb = new StringBuffer();
-		Scanner sc=new Scanner(System.in);
-		while (true) {
-			int text = sc.nextInt();
-			
-			int a = Integer.parseInt(sb.append(text).reverse().toString());
-			sb.delete(0, sb.length());
-			if (text == a) {
-				if (text == 0) {
-					break;
-				}
-				System.out.println("yes");
-			} else {
-				System.out.println("no");
-			}
-		}
-		sc.close();
-	}
+public class Main{
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        while(true){
+            int num = sc.nextInt();
+            int saveNum = num;          
+            int result = 0;
+            if(saveNum != 0){
+                while(num != 0){
+                    result = result*10 + num % 10;
+                    num /= 10;
+                }
+                if( saveNum == result){
+                    System.out.println("yes");
+                }else{
+                     System.out.println("no");
+                }
+            }else{
+                sc.close();
+                break;
+            }
+        }
+    }
 }
